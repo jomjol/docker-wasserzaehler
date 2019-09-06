@@ -10,6 +10,8 @@ It is the content of a Dockerfile for an water meter described here: [https://gi
 ##### 2.0.0 Implemenation of Python code and environment
 * usage of self build / compiled version of Tensorflow wihtout need for AVX/AVX2 processor library
 * implementation of improved analog meter network with sin/cos algorithm
+##### 2.1.0 Implemenation of Python code and environment
+* Integration of direct request to Image provider (https://github.com/jomjol/water-meter-system-complete - Version 2.1.0)
  
 
 
