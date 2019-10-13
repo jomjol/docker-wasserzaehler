@@ -4,15 +4,11 @@ This dockerfile is published on [https://cloud.docker.com/u/jomjol/repository/do
 
 It is the content of a Dockerfile for an water meter described here: [https://github.com/jomjol/water-meter-system-complete](https://github.com/jomjol/water-meter-system-complete)
 
-## Version
-##### 1.0.0 Initial Version implemented in NodeJS not followed anymore - depreceated
-* Tensorflow in standard configuration is expecting a processor with AVX/AVX2 library. Therefor there is some limitations for usage on some processor, which are e.g. used in Synology Diskstations. Therefore this version of Dockerfile is not working on all systems
-##### 2.0.0 Implemenation of Python code and environment
-* usage of self build / compiled version of Tensorflow wihtout need for AVX/AVX2 processor library
-* implementation of improved analog meter network with sin/cos algorithm
-##### 2.1.0 Implemenation of Python code and environment
-* Integration of direct request to Image provider (https://github.com/jomjol/water-meter-system-complete - Version 2.1.0)
- 
+## Changelog - lastest version
+##### 3.0.0 (2019-10-13)
+* Load of default configuration on newly installed system with mounted of empty log / config directory
+* Usage of previous values and optional conistency check of readout with error information
+### [Full Changelog](Changelog.md)
 
 
 ## Usage
@@ -22,3 +18,7 @@ It is bases on a Python 3.7 version and therefore pretty big. This can be improv
 `docker run -p 3000:3000 wasserzaehler`
 
 The setting and logging folders can be binded to outside directories, therefore a configuration without rebuild of the container is possible. Details see in the docker description.
+
+`docker run -p 3000:3000 --mount type=bind,source=/volume/configpath,target=/config`
+
+`docker run -p 3000:3000 --mount type=bind,source=/volume/configpath,target=/config --mount type=bind,source=/volume/log,target=/log`
